@@ -1,6 +1,5 @@
 <?php
 namespace CRUD;
-use CRUD\Utilities;
 use CRUD\User;
 
 
@@ -39,13 +38,13 @@ class UserController
   public function store()
   {
     $util = new Utilities();
-    $fname = $util->cleanInput($_POST['fname']);
-    $lname = $util->cleanInput($_POST['lname']);
-    $email = $util->cleanInput($_POST['email']);
-    $phone = $util->cleanInput($_POST['phone']);
-
     $user=new User();
-    $user->save($fname, $lname, $email, $phone);
+
+    $user->setFname($util->cleanInput($_POST['fname']));
+    $user->setLname($util->cleanInput($_POST['lname']));
+    $user->setEmail($util->cleanInput($_POST['email']));
+    $user->setPhone($util->cleanInput($_POST['phone']));
+    $user->save();
 
      if ($user) {
         return $util->showMessage('success', 'User inserted successfully!');
@@ -63,17 +62,16 @@ class UserController
   }
 
 //   update a user's data'
-  public function update()
+  public function update($id)
   {
     $util = new Utilities();
-    $id = $util->cleanInput($_POST['id']);
-    $fname = $util->cleanInput($_POST['fname']);
-    $lname = $util->cleanInput($_POST['lname']);
-    $email = $util->cleanInput($_POST['email']);
-    $phone = $util->cleanInput($_POST['phone']);
     $user=new User();
+    $user->setFname($util->cleanInput($_POST['fname']));
+    $user->setLname($util->cleanInput($_POST['lname']));
+    $user->setEmail($util->cleanInput($_POST['email']));
+    $user->setPhone($util->cleanInput($_POST['phone']));
 
-    if ($user->update($id, $fname, $lname, $email, $phone)) {
+    if ($user->update($id)) {
         return $util->showMessage('success', 'User updated successfully!');
     } else {
         return $util->showMessage('danger', 'Something went wrong!');

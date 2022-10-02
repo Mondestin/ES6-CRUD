@@ -9,7 +9,7 @@ class Config
     private const host = 'localhost';
     private const user = 'root';
     private const password = '';
-    private const db_name = 'fetch_crud_app';
+    private const db_name = 'crud_app';
 
     private $dsn = 'mysql:host=' . self::host . ';dbname=' . self::db_name . '';
 

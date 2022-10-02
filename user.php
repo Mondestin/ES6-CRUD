@@ -1,5 +1,6 @@
 <?php
 namespace CRUD;
+
 require_once('config.php');
 
 class User extends Config
@@ -12,7 +13,7 @@ class User extends Config
     // FirstName access and mutator
     public function setFname($fname)
     {
-          $this->fname = $fname;
+        $this->fname = $fname;
     }
     public function getFname()
     {

@@ -27,7 +27,7 @@ namespace CRUD;
 
   // Handle Update User 
   if (isset($_POST['update'])) {
-    $res=$controller->update();
+    $res=$controller->update($_POST['id']);
     echo $res;
   }
 

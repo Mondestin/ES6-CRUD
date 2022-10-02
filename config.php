@@ -4,7 +4,8 @@ use PDO;
 use PDOException;
 
 
-class Config  {
+class Config  
+{
     private const host = 'localhost';
     private const user = 'root';
     private const password = '';

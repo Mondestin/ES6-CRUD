@@ -6,7 +6,7 @@ use CRUD\User;
 
 class UserController
 {
-    // get all the users from the database
+   // get all the users from the database
    public function index(){
     $user=new User();
     $users = $user->all();
